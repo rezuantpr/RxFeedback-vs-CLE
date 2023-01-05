@@ -1,0 +1,41 @@
+{
+  "pins" : [
+    {
+      "identity" : "cle-architecture-tools",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/danielt1263/CLE-Architecture-Tools",
+      "state" : {
+        "revision" : "0cdc7d2c88ff0743878aef02557522359555a2a5",
+        "version" : "5.3.1"
+      }
+    },
+    {
+      "identity" : "rxdatasources",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/RxSwiftCommunity/RxDataSources",
+      "state" : {
+        "branch" : "main",
+        "revision" : "bbfea3869f5492580563c676acda729c64fa489e"
+      }
+    },
+    {
+      "identity" : "rxfeedback.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/NoTests/RxFeedback.swift/",
+      "state" : {
+        "revision" : "aa8384081a14af8fb389245fce2eba5776a96d0b",
+        "version" : "4.0.0"
+      }
+    },
+    {
+      "identity" : "rxswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ReactiveX/RxSwift.git",
+      "state" : {
+        "revision" : "b4307ba0b6425c0ba4178e138799946c3da594f8",
+        "version" : "6.5.0"
+      }
+    }
+  ],
+  "version" : 2
+}
