@@ -30,13 +30,15 @@ final class CLEPagingVewModel: PagingViewModel {
       .map { PagingEvent.loadNext }
     
     cycle(input: input,
-          initialState: PagingState(),
-          reduce: PagingState.reduce,
-          reaction: reaction(request: { state, _ in state.nextPage }, effect: { page in
-      loadSomeData(page: page, limit: limit)
-        .observe(on: MainScheduler.instance)
-        .map(PagingEvent.response)
-    }))
+          initialState: CLEPagingState(),
+          reduce: CLEPagingState.reduce,
+          reaction: reaction(
+            request: CLEPagingState.nextPage,
+            effect: { page in
+              loadSomeData(page: page, limit: limit)
+                .observe(on: MainScheduler.instance)
+                .map(PagingEvent.response)
+            }))
     .map(\.items)
     .map { $0.map(PagingSectionItem.init) }
     .map { [PagingSection(title: "section", items: $0)] }

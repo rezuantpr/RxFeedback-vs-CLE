@@ -17,7 +17,7 @@ final class PagingViewController: UIViewController {
   
   private let disposeBag = DisposeBag()
   
-  private let loadNextButton = UIBarButtonItem(title: "Load Next (tap twice if CLE)", style: .done, target: nil, action: nil)
+  private let loadNextButton = UIBarButtonItem(title: "Load Next", style: .done, target: nil, action: nil)
   
   init(viewModel: PagingViewModel) {
     self.viewModel = viewModel

@@ -30,10 +30,10 @@ final class RxFeedbackPagingViewModel: PagingViewModel {
       .map { PagingEvent.loadNext }
  
     Observable.system(
-      initialState: PagingState(),
-      reduce: { (state: PagingState, event: PagingEvent) in
+      initialState: FeedbackPagingState(),
+      reduce: { (state: FeedbackPagingState, event: PagingEvent) in
         var state = state
-        PagingState.reduce(state: &state, event: event)
+        FeedbackPagingState.reduce(state: &state, event: event)
         return state
       },
       scheduler: MainScheduler.asyncInstance,

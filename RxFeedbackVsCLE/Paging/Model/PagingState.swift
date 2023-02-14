@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PagingState {
+struct FeedbackPagingState {
   var items: [String] = []
   var shouldLoadNext: Bool = false
   var page: Int = 1
@@ -16,7 +16,7 @@ struct PagingState {
     shouldLoadNext ? page : nil
   }
   
-  static func reduce(state: inout PagingState, event: PagingEvent) {
+  static func reduce(state: inout FeedbackPagingState, event: PagingEvent) {
     switch event {
     case .loadNext:
       state.shouldLoadNext = true
@@ -28,7 +28,23 @@ struct PagingState {
   }
 }
 
-enum PagingEvent {
+struct CLEPagingState {
+  var items: [String] = []
+  var page: Int = 1
+
+  static func nextPage(state: CLEPagingState, event: PagingEvent) -> Int? {
+    guard case .loadNext = event else { return nil }
+    return state.page
+  }
+
+  static func reduce(state: inout CLEPagingState, event: PagingEvent) {
+    guard case let .response(items) = event else { return }
+    state.items.append(contentsOf: items)
+    state.page += 1
+  }
+}
+
+enum PagingEvent: Equatable {
   case loadNext
   case response([String])
 }
